@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page-width: 100%;
+  --page-width-medium: 80%;
+  --page-width-large: 70%;
+}
