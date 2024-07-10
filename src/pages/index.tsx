@@ -1,18 +1,12 @@
 import React, { FC } from "react";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import { PersonalPage } from "./PersonalPage/PersonalPage";
 
+// HAD TO REMOVE REACT ROUTER, NOTHING HELPS FOR NOW
+//https://stackoverflow.com/questions/58065603/netlify-renders-404-on-page-refresh-using-react-and-react-router
+
 const Index: FC = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<PersonalPage />} />
-                <Route path="*" element={<h1>Error 404, źle trafiłeś!</h1>} />
-            </Routes>
-        </Router>
-    );
+    return <PersonalPage />;
 };
 
 export default Index;
