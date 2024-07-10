@@ -5,6 +5,9 @@ Formularz rejestracyjny z wbudowaną funkcjonalnością sprawdzania dostępnośc
 ## Wstęp
 Projekt ma na celu stworzenie formularza rejestracyjnego, który sprawdza dostępność dni treningowych na podstawie listy świąt w Polsce. Formularz jest responsywny i wszystkie pola są wymagane do wypełnienia.
 
+## Live
+https://turoczek.github.io/form/
+
 ## Wymagania
 - Node.js
 - npm (Node Package Manager)
@@ -27,7 +30,7 @@ Projekt ma na celu stworzenie formularza rejestracyjnego, który sprawdza dostę
 1. Utwórz plik `.env` w katalogu głównym projektu i dodaj poniższe zmienne środowiskowe:
     ```env
     REACT_APP_API_KEY=
-    REACT_APP_API_BASEURL=https://api-ninjas.com/api/holidays
+    REACT_APP_API_BASEURL=https://api.api-ninjas.com/v1
     ```
 
 ## Uruchomienie
