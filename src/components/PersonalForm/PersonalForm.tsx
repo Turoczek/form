@@ -3,15 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { TextInput } from "../TextInput/TextInput";
 import { AppDispatch, RootState } from "../../store/store";
-import { setFieldValue, setFieldValidity } from "../../store/PersonalForm/personalForm.slice";
+import { setFieldValidity, setFieldValue } from "../../store/PersonalForm/personalForm.slice";
 import { Button } from "../Button/Button";
 import { Calendar } from "../Calendar/Calendar";
 import { FileInput } from "../FileInput/FileInput";
-
-const handleSubmit = (e: React.FormEvent) => {
-    console.log(e);
-    console.log("Form submitted successfully");
-};
+import { submitForm } from "../../store/PersonalFormActions/personalFormActions.slice";
 
 export const PersonalForm: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -23,6 +19,12 @@ export const PersonalForm: React.FC = () => {
         lastName: "",
         email: "",
     });
+
+    const handleSubmit = () => {
+        if (formData && file) {
+            dispatch(submitForm({ formData, file: file }));
+        }
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;

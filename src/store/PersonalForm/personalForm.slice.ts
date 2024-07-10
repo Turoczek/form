@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface FormState {
+export interface PersonalFormState {
     firstName: {
         value: string;
         isValid: boolean;
@@ -28,7 +28,7 @@ const initialFieldState = {
     isValid: false,
 };
 
-const initialState: FormState = {
+const initialState: PersonalFormState = {
     firstName: { ...initialFieldState },
     lastName: { ...initialFieldState },
     email: { ...initialFieldState },
@@ -40,11 +40,11 @@ const personalForm = createSlice({
     name: "personalForm",
     initialState,
     reducers: {
-        setFieldValue: (state, action: PayloadAction<{ field: keyof FormState; value: string }>) => {
+        setFieldValue: (state, action: PayloadAction<{ field: keyof PersonalFormState; value: string }>) => {
             const { field, value } = action.payload;
             state[field].value = value;
         },
-        setFieldValidity: (state, action: PayloadAction<{ field: keyof FormState; isValid: boolean }>) => {
+        setFieldValidity: (state, action: PayloadAction<{ field: keyof PersonalFormState; isValid: boolean }>) => {
             const { field, isValid } = action.payload;
             state[field].isValid = isValid;
         },

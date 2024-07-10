@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import personalFormReducer from "./PersonalForm/personalForm.slice";
 import holidaysReducer from "./Holidays/holidays.slice";
+import personalFormActionsReducer from "./PersonalFormActions/personalFormActions.slice";
 
 const store = configureStore({
     reducer: {
         personalForm: personalFormReducer,
         holidays: holidaysReducer,
+        personalFormActions: personalFormActionsReducer,
     },
 });
 
