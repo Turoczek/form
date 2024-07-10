@@ -45,10 +45,12 @@ export const FileInput: React.FC<FileInputProps> = ({ onChange, file }) => {
                                 </button>
                             </p>
                         )) || (
-                            <>
+                            <span className="flex">
                                 <span className="text-primary100 underline">Upload a file</span>
-                                <span className="hidden medium:text-gray10 ">{"  "}or drag nad drop here</span>
-                            </>
+                                <span className="hidden medium:text-gray10 medium:block medium:ml-3">
+                                    or drag nad drop here
+                                </span>
+                            </span>
                         )}
                     </div>
                 </label>
