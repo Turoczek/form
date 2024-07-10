@@ -13,7 +13,7 @@ Projekt ma na celu stworzenie formularza rejestracyjnego, który sprawdza dostę
 
 1. Sklonuj repozytorium:
     ```
-    git clone https://github.com/Turoczek/think.git
+    git clone https://github.com/Turoczek/form.git
     cd form-project
     ```
 
@@ -27,7 +27,7 @@ Projekt ma na celu stworzenie formularza rejestracyjnego, który sprawdza dostę
 1. Utwórz plik `.env` w katalogu głównym projektu i dodaj poniższe zmienne środowiskowe:
     ```env
     REACT_APP_API_KEY=
-    REACT_APP_API_URL=https://api-ninjas.com/api/holidays
+    REACT_APP_API_BASEURL=https://api-ninjas.com/api/holidays
     ```
 
 ## Uruchomienie
@@ -40,7 +40,7 @@ Projekt ma na celu stworzenie formularza rejestracyjnego, który sprawdza dostę
 2. Otwórz przeglądarkę i przejdź do `http://localhost:3000`
 
 ### API Świąt
-- Formularz korzysta z API zwracającego listę świąt w Polsce: [API Ninjas - Holidays](https://api-ninjas.com/api/holidays)
+- Formularz korzysta z API zwracającego listę świąt: [API Ninjas - Holidays](https://api-ninjas.com/api/holidays)
 - Parametry zapytania: `country=PL`, `year=2023`
 - Dni, które mają `type = "NATIONAL_HOLIDAY"` oraz niedziele są zablokowane jako dni treningowe.
 - Po wybraniu daty, która ma `type = "OBSERVANCE"`, wyświetlana jest informacja o święcie.
