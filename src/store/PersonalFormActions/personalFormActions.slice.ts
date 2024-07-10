@@ -55,6 +55,7 @@ const personalForm = createSlice({
             })
             .addCase(submitForm.rejected, (state, action) => {
                 state.error = action.error.message;
+                state.submitting = false;
             });
     },
 });

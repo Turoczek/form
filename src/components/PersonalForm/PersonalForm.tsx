@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { CircularProgress } from "@mui/material";
+
 import { TextInput } from "../TextInput/TextInput";
 import { AppDispatch, RootState } from "../../store/store";
 import { setFieldValidity, setFieldValue } from "../../store/PersonalForm/personalForm.slice";
@@ -12,6 +14,7 @@ import { submitForm } from "../../store/PersonalFormActions/personalFormActions.
 export const PersonalForm: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const formData = useSelector((state: RootState) => state.personalForm);
+    const { submitting } = useSelector((state: RootState) => state.personalFormActions);
 
     const [file, setFile] = useState<File | null>(null);
     const [errors, setErrors] = useState({
@@ -20,9 +23,10 @@ export const PersonalForm: React.FC = () => {
         email: "",
     });
 
-    const handleSubmit = () => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         if (formData && file) {
             dispatch(submitForm({ formData, file: file }));
+            e.preventDefault();
         }
     };
 
@@ -78,7 +82,7 @@ export const PersonalForm: React.FC = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <form
                 className="max-w-288px mx-auto medium:p-2 max-w-426px"
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
                 aria-label="Personal info form"
                 noValidate
             >
@@ -115,9 +119,13 @@ export const PersonalForm: React.FC = () => {
                     />
                     <Calendar />
                     <FileInput onChange={handleFileChange} file={file} />
-                    <Button type="submit" disabled={!canSubmit()}>
-                        Send application
-                    </Button>
+                    {submitting ? (
+                        <CircularProgress />
+                    ) : (
+                        <Button type="submit" disabled={!canSubmit() || submitting}>
+                            Send application
+                        </Button>
+                    )}
                 </fieldset>
             </form>
         </div>
